@@ -4,6 +4,8 @@ This project is a YouTube channel statistics tracker built using the SvelteKit f
 
 **View the live deployment on Vercel:** [https://youtube-performance-tracker-sveltekit.vercel.app/](https://youtube-performance-tracker-sveltekit.vercel.app/)
 
+![YouTube Performance Tracker Screenshot](assets/tracker_screenshot.png)
+
 ## Key Technologies
 
 *   **Framework:** SvelteKit
