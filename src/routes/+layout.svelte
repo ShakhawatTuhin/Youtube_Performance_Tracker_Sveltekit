@@ -1,4 +1,3 @@
-<!-- src/routes/+layout.svelte -->
 <script lang="ts">
     import Header from '../components/Header.svelte';
     import Footer from '../components/Footer.svelte';
@@ -18,26 +17,26 @@
         flex-direction: column;
         min-height: 100vh;
         background-color: #000;
-        color: #FFD700; /* Base text color */
+        color: #FFD700;
     }
 
     .main-content {
-        flex: 1; /* Allows main content to grow and push footer down */
-        padding: 0 2rem; /* Add horizontal padding */
+        flex: 1; /* allows main content to grow and push footer down */
+        padding: 0 2rem;
         width: 100%;
-        max-width: 1200px; /* Optional: Max width for content area */
-        margin: 0 auto; /* Center content area */
+        max-width: 1200px;
+        margin: 0 auto;
         box-sizing: border-box;
     }
 
-    /* Add some base styles if not using app.css */
+    /* add some base styles if not using app.css */
     :global(body) {
         margin: 0;
         font-family: sans-serif;
-        background-color: #000; /* Ensure body bg matches */
+        background-color: #000; /* ensure body bg matches */
     }
     :global(h1, h2, h3) {
-        color: #FFD700; /* Gold headings */
+        color: #FFD700; 
         text-align: center;
     }
 </style>

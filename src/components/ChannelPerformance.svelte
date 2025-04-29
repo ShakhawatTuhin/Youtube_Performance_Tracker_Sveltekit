@@ -1,5 +1,3 @@
-<!-- src/components/ChannelPerformance.svelte -->
-<!-- (Use the version from the previous TypeScript fix, ensuring Number() conversions) -->
 <script lang="ts">
     import { onMount, onDestroy } from 'svelte';
     import Chart from 'chart.js/auto';

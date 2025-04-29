@@ -1,4 +1,3 @@
-<!-- src/components/HistoryItem.svelte -->
 <script lang="ts">
     export let item: any;
 
@@ -38,6 +37,6 @@
 
     .details {
         font-size: 1em;
-        word-break: break-word; /* Prevent long URLs/IDs from breaking layout */
+        word-break: break-word; /* prevent long URLs/IDs from breaking layout */
     }
 </style>

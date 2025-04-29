@@ -1,13 +1,12 @@
-<!-- src/components/SearchForm.svelte -->
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
     import LoadingSpinner from './LoadingSpinner.svelte';
 
     export let isLoading: boolean = false;
-    export let formType: 'single' | 'compare'; // Determines which inputs to show
+    export let formType: 'single' | 'compare'; // determines which inputs to show
 
     let input1 = '';
-    let input2 = ''; // Only used for 'compare'
+    let input2 = '';
 
     const dispatch = createEventDispatcher();
 
@@ -18,7 +17,7 @@
             if (input1.trim()) {
                 dispatch('search', { value: input1.trim() });
             }
-        } else { // compare
+        } else {
             if (input1.trim() && input2.trim()) {
                 dispatch('compare', { value1: input1.trim(), value2: input2.trim() });
             }
@@ -41,7 +40,6 @@
                 disabled={isLoading}
                 on:keydown={handleKeydown}
         />
-
         {#if formType === 'compare'}
             <input
                     type="text"
@@ -79,7 +77,7 @@
         align-items: center;
         gap: 0.75rem;
         width: 100%;
-        max-width: 400px; /* Adjust max width */
+        max-width: 400px; /* adjust max width */
     }
 
     input {
@@ -88,7 +86,7 @@
         border: 1px solid #FFD700;
         background: #111;
         color: #FFD700;
-        width: 100%; /* Take full width of parent */
+        width: 100%;
         font-size: 1rem;
         box-sizing: border-box;
         text-align: center;
@@ -100,7 +98,7 @@
     }
 
     button {
-        padding: 0.6rem 1.5rem; /* Adjusted padding */
+        padding: 0.6rem 1.5rem;
         border-radius: 4px;
         border: 1px solid #FFD700;
         background-color: #FFD700;
@@ -109,7 +107,7 @@
         cursor: pointer;
         transition: background-color 0.2s ease, color 0.2s ease;
         min-width: 120px;
-        min-height: 48px; /* Ensure button height matches inputs roughly */
+        min-height: 48px; /* ensure button height matches inputs roughly */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -127,13 +125,13 @@
         color: #aaa;
     }
 
-    /* Style loading spinner inside button */
+    /* style loading spinner inside the button */
     button:disabled > :global(.spinner-container) {
         padding: 0;
-        transform: scale(0.6); /* Make spinner smaller inside button */
+        transform: scale(0.6); /* make spinner smaller inside the button */
     }
     button:disabled > :global(.spinner-container p) {
-        font-size: 0.9em; /* Smaller text */
+        font-size: 0.9em; /* smaller text */
         margin-left: 0.5rem;
     }
     button:disabled > :global(.spinner) {

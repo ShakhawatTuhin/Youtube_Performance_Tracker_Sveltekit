@@ -1,4 +1,3 @@
-<!-- src/components/Header.svelte -->
 <script lang="ts">
     import { page } from '$app/stores';
 </script>
@@ -16,7 +15,7 @@
         background-color: #111;
         padding: 1rem 2rem;
         border-bottom: 2px solid #FFD700;
-        margin-bottom: 2rem; /* Add space below header */
+        margin-bottom: 2rem; /* add space below header */
     }
     nav {
         display: flex;
@@ -36,7 +35,7 @@
         color: #fff;
     }
     a.active {
-        color: #fff; /* White for active link */
+        color: #fff; /* white color for active link */
         border-bottom-color: #fff;
     }
 </style>

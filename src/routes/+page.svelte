@@ -1,23 +1,18 @@
-<!-- src/routes/+page.svelte -->
 <script lang="ts">
     import { PUBLIC_YOUTUBE_API_KEY } from '$env/static/public';
     import { fetchChannelStats, processIdentifier } from '$lib/youtubeApi';
 
-    // Import New Components
     import SearchForm from '../components/SearchForm.svelte';
     import LoadingSpinner from '../components/LoadingSpinner.svelte';
     import ErrorMessage from '../components/ErrorMessage.svelte';
 
-    // Import Result Components
     import ChannelPerformance from '../components/ChannelPerformance.svelte';
     import ComparisonChart from '../components/ComparisonChart.svelte';
 
-    // State for Single Search
     let isLoadingSingle = false;
     let singleError: string | null = null;
     let currentSingleChannelId: string | null = null; // ID for ChannelPerformance
 
-    // State for Compare Search
     let isLoadingCompare = false;
     let compareError: string | null = null;
     let compareData1: any = null; // Full data for ComparisonChart
@@ -25,7 +20,6 @@
 
     const API_KEY = PUBLIC_YOUTUBE_API_KEY;
 
-    // --- Save History Function ---
     async function saveHistory(entry: any) {
         try {
             const response = await fetch('/api/history', {
@@ -41,7 +35,6 @@
         }
     }
 
-    // --- Event Handler for Single Search ---
     async function handleSearch(event: CustomEvent<{ value: string }>) {
         const input = event.detail.value;
         isLoadingSingle = true;
@@ -49,11 +42,10 @@
         currentSingleChannelId = null; // Reset previous result
 
         try {
-            // Process identifier (resolves handle/URL if needed)
             const finalId = await processIdentifier(input, 'channel', API_KEY);
             currentSingleChannelId = finalId; // Set ID for ChannelPerformance component
 
-            // Save to history (fire-and-forget, don't wait)
+            // save to history (fire-and-forget, don't wait)
             saveHistory({ type: 'single', input: input, channelId: finalId });
 
         } catch (error: any) {
@@ -64,13 +56,12 @@
         }
     }
 
-    // --- Event Handler for Compare Search ---
     async function handleCompare(event: CustomEvent<{ value1: string, value2: string }>) {
         const input1 = event.detail.value1;
         const input2 = event.detail.value2;
         isLoadingCompare = true;
         compareError = null;
-        compareData1 = null; // Reset previous results
+        compareData1 = null;
         compareData2 = null;
 
         try {
@@ -89,7 +80,7 @@
             compareData1 = data1;
             compareData2 = data2;
 
-            // Save to history (fire-and-forget)
+            // Save to history (fireeee-and-forgettttt)
             saveHistory({ type: 'compare', inputs: [input1, input2], channelIds: [resolvedId1, resolvedId2] });
 
         } catch (error: any) {
@@ -108,8 +99,7 @@
 <!-- Single Channel Search Section -->
 <section class="section-container">
     <h2>Search a Channel</h2>
-    <SearchForm formType="single" {isLoadingSingle} on:search={handleSearch} />
-
+    <SearchForm formType="single" isLoading={isLoadingSingle} on:search={handleSearch} />
     {#if isLoadingSingle}
         <LoadingSpinner />
     {/if}
@@ -125,8 +115,7 @@
 <!-- Compare Two Channels Section -->
 <section class="section-container">
     <h2>Compare Two Channels</h2>
-    <SearchForm formType="compare" {isLoadingCompare} on:compare={handleCompare} />
-
+    <SearchForm formType="compare" isLoading={isLoadingCompare} on:compare={handleCompare} />
     {#if isLoadingCompare}
         <LoadingSpinner />
     {/if}

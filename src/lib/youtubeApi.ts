@@ -1,8 +1,5 @@
-// src/lib/youtubeApi.ts
-// (Use the version from the previous fix, ensuring parameters are typed)
-
 /**
- * Fetches channel snippet and statistics from YouTube Data API v3.
+  fetches channel snippet & statistics from YouTube Data API v3.
  */
 export async function fetchChannelStats(channelId: string, apiKey: string): Promise<object> {
     if (!channelId) throw new Error('Channel ID is required.');
@@ -26,7 +23,7 @@ export async function fetchChannelStats(channelId: string, apiKey: string): Prom
 }
 
 /**
- * Resolves a channel handle or name to a channel ID using YouTube Data API v3 Search.
+  resolves a channel handle/name to channel ID using YouTube Data API v3 Search.
  */
 export async function resolveNameToId(name: string, apiKey: string): Promise<string | null> {
     if (!apiKey || apiKey === 'YOUR_API_KEY_HERE' || apiKey.startsWith('PUBLIC_') || apiKey === import.meta.env.VITE_PLACEHOLDER_API_KEY) throw new Error("API Key is missing or not configured.");
@@ -50,7 +47,7 @@ export async function resolveNameToId(name: string, apiKey: string): Promise<str
 }
 
 /**
- * Helper to extract identifier type and value.
+  Extracts identifier (ID, handle, name) from various input formats (URL, @handle, raw).!!!
  */
 export function extractIdentifier(input: string): { type: 'id' | 'handle_or_name' | 'invalid', value: string | null } {
     const trimmedInput = input.trim();
@@ -83,7 +80,7 @@ export function extractIdentifier(input: string): { type: 'id' | 'handle_or_name
 }
 
 /**
- * Helper to process input, resolve if needed, and return ID.
+ * helper to process input, resolve (if  it is needed), and return ID.
  */
 export async function processIdentifier(input: string, inputLabel: string, apiKey: string): Promise<string> {
     const identifier = extractIdentifier(input);

@@ -1,6 +1,4 @@
-<!-- src/components/ErrorMessage.svelte -->
 <script lang="ts">
-    // Ensure the type explicitly allows string or null/undefined
     export let message: string | null | undefined = null;
 </script>
 
@@ -11,5 +9,5 @@
 {/if}
 
 <style>
-    /* styles... */
+
 </style>

@@ -1,4 +1,3 @@
-<!-- src/routes/about/+page.svelte -->
 <svelte:head>
     <title>About - YouTube Tracker</title>
 </svelte:head>

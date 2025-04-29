@@ -1,5 +1,3 @@
-<!-- src/components/ComparisonChart.svelte -->
-<!-- (Use the version from the previous TypeScript fix, ensuring Number() conversions) -->
 <script lang="ts">
     import { onMount, onDestroy, tick } from 'svelte';
     import Chart from 'chart.js/auto';

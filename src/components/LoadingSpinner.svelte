@@ -1,4 +1,3 @@
-<!-- src/components/LoadingSpinner.svelte -->
 <div class="spinner-container">
     <div class="spinner"></div>
     <p><slot>Loading...</slot></p>
@@ -14,8 +13,8 @@
         color: #FFD700;
     }
     .spinner {
-        border: 4px solid rgba(255, 215, 0, 0.3); /* Light gold border */
-        border-left-color: #FFD700; /* Solid gold */
+        border: 4px solid rgba(255, 215, 0, 0.3); /* light gold border, for color blind people */
+        border-left-color: #FFD700;
         border-radius: 50%;
         width: 40px;
         height: 40px;
